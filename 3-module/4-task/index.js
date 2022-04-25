@@ -1,9 +1,6 @@
-function showSalary(users, age) {
-  let appropriateUsers = [];
-  for (const user of users){
-    if (user.age <= age){
-      appropriateUsers.push([user.name,user.balance].join(", "));
-    }
-  }
+function showSalary(users, upperAge) {
+  let appropriateUsers = users
+    .filter(({ age }) => age <= upperAge)
+    .map( ({ name, balance }) => [ name, balance ].join(", "));
   return(appropriateUsers.join("\n"));
 }
