@@ -1,10 +1,10 @@
 function highlight(table) {
   // Дополнительно, упражнения для, сделал проверку на то, какую колонку мы берём. Теперь их можно поменять местами, но при этом должно работать :)
   let cellNamesObj = [...table.querySelector("thead tr").children];
-  let cellNamesList = [];
-  for (let i = 0; i < cellNamesObj.length; i++) {
-    cellNamesList.push(cellNamesObj[i].textContent.toLowerCase());
-  }
+
+  let cellNamesList = cellNamesObj.map(function(name) {
+    return name.textContent.toLowerCase()
+  });
 
   let tbodyChildren = table.querySelector("tbody").children;
   for (row of tbodyChildren) {
